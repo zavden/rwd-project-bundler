@@ -1,0 +1,18 @@
+extends /modules/pug/blocks/exercises
+block pug_javascript
+    -
+        let page_title = "Page NL",
+        N_EX = NL 
+block pug_styles
+    +new_style(`../styles.css`)
+block html_javascript
+    +new_script(`../scripts.js`)
+block pug_contenido
+    :markdown-it(html)
+        $$x^2$$
+    +img("e1-1.png")
+    +codepen("QEObEZ", default_height, "rcyou")
+    +codepen_flex("QEObEZ", default_height, "rcyou")
+    +codepen_flex("BaybRKr")
+    +ex("01")
+    +ex("02")

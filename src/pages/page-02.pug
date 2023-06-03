@@ -1,0 +1,28 @@
+extends /modules/pug/blocks/exercises
+block pug_javascript
+    -
+        let page_title = "Page 2",
+        N_EX = 2 
+block pug_styles
+    +new_style(`../styles.css`)
+block html_javascript
+    +new_script(`../scripts.js`)
+block pug_contenido
+    :markdown-it(html)
+        ## This is a title.
+
+        ## This is a code-block:
+        ```html
+        <p>Hello world</p>
+        ```
+
+        ## This is a $\LaTeX$ formula
+        $$\Large
+            \dfrac{d}{dx}f = \lim_{h\to 0} \dfrac{f(x+h) - f(x)}{h}
+        $$
+
+        This is a image:
+        <img src="../static/images/css-is-awesome.png" width="1%">
+        <img src="../static/diagrams/d3.svg" width="1%">
+    h2 Other example: Recursive menu
+    +ex("03")

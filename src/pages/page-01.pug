@@ -1,0 +1,29 @@
+extends /modules/pug/blocks/exercises
+block pug_javascript
+    -
+        let page_title = "Page 1",
+        N_EX = 1 
+block pug_styles
+    +new_style(`../styles.css`)
+block html_javascript
+    +new_script(`../scripts.js`)
+block pug_contenido
+    h2 Codepen
+    h3 Codepen Example:
+    +codepen("vYrLKze")
+    h3 Change height (px):
+    +codepen("vYrLKze", 700)
+    h3 Get example from other user:
+    +codepen("QEObEZ", default_height, "rcyou")
+    h3 Codepen flex Example:
+    +codepen_flex("vYrLKze")
+    h2 Local examples
+    h3 Example:
+    +ex("01")
+    h3 Change heigh:
+    +ex("02", 500)
+    h2 Import images
+    +img("images/css-is-awesome.png")
+    +img("diagrams/d1.png")
+    +img("diagrams/d2.svg")
+

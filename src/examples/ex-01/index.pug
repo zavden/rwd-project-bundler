@@ -1,0 +1,20 @@
+doctype
+html
+    head
+        title example
+        link(rel="stylesheet" href="styles.css")
+
+    body
+        // ===============================================
+        // Start
+        ul.banner
+            each item in ["Courses", "Teachers", "Groups", "Prices"]
+                li.banner__item
+                    a(href="#").banner__title= item
+                    .banner__content.
+                        This is some text to fill
+        // END
+        // ===============================================
+
+        script(src="script.js")
+

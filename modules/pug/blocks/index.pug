@@ -1,0 +1,26 @@
+include /modules/pug/functions/functions
+include /modules/pug/mixins/mixins
+block pug_javascript
+doctype
+html
+    head
+        title=`${page_title}`
+        include /modules/pug/static/meta_static
+        block pug_styles
+        link(rel="stylesheet" href="prism/prism.css")
+        link(rel="icon" href="favicon.ico")
+    body
+        .contenido
+            h1#title=`${page_title}`
+            .menu-nav
+                a(href="#downer").remark-ej=`Index`
+                +menu_nav_index(...pages_arr_formated)
+            block pug_contenido
+            hr
+            .menu-nav#downer
+                a(href="#title").remark-ej=`Index`
+                +menu_nav_index(...pages_arr_formated)
+        block html_javascript
+        include /modules/pug/static/js_static
+        script(src="prism/prism.js")
+

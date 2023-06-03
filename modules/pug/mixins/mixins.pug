@@ -1,0 +1,180 @@
+//- include /modules/pug/functions/functions
+-
+    let title = undefined,
+        codepen_user = "zavden",
+        default_height = 400
+
+mixin codepen(url, height=400, user=codepen_user)
+    iframe(
+        height=`${height}`
+        style="width: 100%;"
+        scrolling="no" 
+        src=`https://codepen.io/${user}/embed/${url}?default-tab=result`
+        frameborder="no"
+        loading="lazy" 
+        allowtransparency="true"
+        allowfullscreen="true"
+    )
+
+
+mixin codepen_flex(url, height_window=450, user=codepen_user, format="result")
+    .embed-container.ejercicio-flex(
+            style=`padding-bottom: ${height_window}px;` id=url
+        ).html-resize
+        p(class="codepen"
+            data-height=`${height_window}` 
+            data-theme-id="default"
+            data-default-tab=format 
+            data-user=user 
+            data-slug-hash=`${url}`
+            style=`height:
+                ${height_window}px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid;
+                margin: 1em 0;
+                padding: 1em;`
+        )
+    .change-vh-container
+        form(style="display: none")
+            input(
+                type="checkbox" id=`${url}-v` name=`${url}-v`
+                value="vertical"
+            )
+            label(for=`${url}-v`) Vertical
+            input(
+                type="checkbox" id=`${url}-h` name=`${url}-h`
+                value="vertical"
+            )
+            label(for=`${url}-h`) Horizontal
+
+mixin page(url, name="", info="")
+    .ejercicio #[a(href=`pages/page-${String(url).padStart(2, 0)}.html` class="link-exercises")=`Page ${url}`]#[span=` - ${name}`] 
+        p=`${info}`
+
+mixin new_style(url)
+    link(rel="stylesheet" href=url)
+
+mixin new_script(url)
+    script(src=url)
+
+mixin menu_nav(...arr_exercises)
+    each ej in arr_exercises
+        if ej == N_EX
+            if title === undefined
+                a(href=`page-${ej}.html`).remark-ej=`Page-${ej}`
+            else
+                a(href=`page-${ej}.html`).remark-ej=`${title}`
+        else
+            if title === undefined
+                a(href=`page-${ej}.html`)=`Page-${ej}`
+            else
+                a(href=`page-${ej}.html`)=`${title}`
+
+mixin menu_nav_index(...arr_exercises)
+    each ej in arr_exercises
+        if ej == N_EX
+            if title === undefined
+                a(href=`pages/page-${ej}.html`).remark-ej=`Page-${ej}`
+            else
+                a(href=`pages/page-${ej}.html`).remark-ej=`${title}`
+        else
+            if title === undefined
+                a(href=`pages/page-${ej}.html`)=`Page-${ej}`
+            else
+                a(href=`pages/page-${ej}.html`)=`${title}`
+
+mixin html_emb_ej(name,padding="300px")
+    .embed-container(style=`padding-bottom: ${padding};`).html-resize
+        iframe.html-resize(src=`../examples/${name}/` frameborder="0" allowfullscreen)
+
+mixin html_emb(name,padding="300px")
+    .embed-container(style=`padding-bottom: ${padding};`).html-resize
+        iframe.html-resize(src=name frameborder="0" allowfullscreen)
+
+mixin img(src)
+    img(src=`../static/${src}` style="width: 100%")
+
+mixin tab_info(_id=0,...all_tabs)
+    .tab
+        each _tab in all_tabs
+            button(class='tablinks' onclick=`openTAB(event, '${_tab}-${_id}')`)=`${_tab}`
+
+
+
+mixin code_html(num, ...blks)
+    .ejercicio
+        a(href=`../examples/ex-${zeroPad(num,2)}/index.html` target="_blank").ejercicio-html=`Ejercicio ${num}`
+    +html_emb_ej(`ex-${num}`)
+    .tab-content
+        +tab_info(num, ...blks)
+
+
+mixin code_emb_html(name,padding="300px")
+    pre(id=`${name}-html`)
+        code.html-resize.embed-container(style=`padding-bottom: ${padding};` class=`language-html`).hljs.code-emb=`${name}`
+    script all_codes = document.querySelectorAll("#!{name}-html .language-html")
+    script.
+        for(let _i=0; _i<all_codes.length; _i++){
+            replace_all_codes(all_codes[_i], "index.html")
+        }
+
+mixin code_emb_css(name,padding="300px")
+    pre(id=`${name}-css`)
+        code.html-resize.embed-container(style=`padding-bottom: ${padding};` class=`language-css`).hljs.code-emb=`${name}`
+    script all_codes = document.querySelectorAll("#!{name}-css .language-css")
+    script.
+        for(let _i=0; _i<all_codes.length; _i++){
+            replace_all_codes(all_codes[_i], "styles.css")
+        }
+
+mixin code_emb_js(name,padding="300px")
+    pre(id=`${name}-javascript`)
+        code.html-resize.embed-container(style=`padding-bottom: ${padding};` class=`language-javascript`).hljs.code-emb=`${name}`
+    script all_codes = document.querySelectorAll("#!{name}-javascript .language-javascript")
+    script.
+        for(let _i=0; _i<all_codes.length; _i++){
+            replace_all_codes(all_codes[_i], "script.js")
+        }
+
+mixin code_emb_source(name, padding="300px", padding_code="400px")
+    - code_count += 1
+    .ejercicio
+        a(href=`../examples/${name}/index.html` target="_blank").ejercicio-html=`Ejercicio - ${name.slice(3)}`
+    .embed-container(style=`padding-bottom: ${padding};`).html-resize
+        iframe(src=`../examples/${name}/` frameborder="0" allowfullscreen)
+    .tab-content
+        +tab_info(code_count, "HTML-S", "CSS-S", "JS-S")
+        .tabcontent(id=`HTML-S-${code_count}`)
+            +code_emb_html(name, padding=padding_code)
+        .tabcontent(id=`CSS-S-${code_count}`)
+            +code_emb_css(name, padding=padding_code)
+        .tabcontent(id=`JS-S-${code_count}`)
+            +code_emb_js(name, padding=padding_code)
+
+
+mixin ex(name, height=300, code_height=650)
+    - code_count += 1
+    .ejercicio
+        a(href=`../examples/ex-${name}/index.html` target="_blank").ejercicio-html=`Exercise iframe - ${name}`
+    .iframe-container(id=`ex-${name}-iframe-container`)
+        .numbers-container(style="margin-bottom: -20px")
+            p(style="display: inline-block") Width = 
+                span(id=`ex-${name}-width`).width-printer 0
+            p(style="display: inline-block") ; Height = 
+                span(id=`ex-${name}-height`).width-printer 0
+        .embed-container(style=`padding-bottom: ${height}px;`).html-resize
+            iframe(src=`../examples/ex-${name}/` frameborder="0" allowfullscreen id=`ex-${name}-iframe`)
+        .tab-content
+            +tab_info(code_count, "HTML-S", "CSS-S", "JS-S")
+            .tabcontent(id=`HTML-S-${code_count}`)
+                span(onclick="this.parentElement.style.display='none'" class="topright") &times
+                +code_emb_html(`ex-${name}`, padding=`${code_height}px`)
+            .tabcontent(id=`CSS-S-${code_count}`)
+                span(onclick="this.parentElement.style.display='none'" class="topright") &times
+                +code_emb_css(`ex-${name}`, padding=`${code_height}px`)
+            .tabcontent(id=`JS-S-${code_count}`)
+                span(onclick="this.parentElement.style.display='none'" class="topright") &times
+                +code_emb_js(`ex-${name}`, padding=`${code_height}px`)
+

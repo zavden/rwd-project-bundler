@@ -1,0 +1,65 @@
+include /modules/pug/functions/functions
+include /modules/pug/mixins/mixins
+block pug_javascript
+- let code_count = 0
+- let codepen_count = 0
+doctype
+html
+    head
+        title=`${page_title}`
+        include /modules/pug/static/meta_static
+        block pug_styles
+        link(rel="stylesheet" href="../prism/prism.css")
+        link(rel="icon" href="../favicon.ico")
+        script(src="../static/hl.js")
+        script.
+            const removeFirstEmptyElement = _string => {
+                if (_string[0] === "")
+                    return _string.slice(1)
+                return _string
+            } 
+            const removeIndent = _string => {
+                if (_string.slice(0,4) === "    ")
+                    return _string.replace("    ", "")
+                return _string
+            }
+            const getSourceCode = async(name, _file) => {
+                const response = await fetch(`../examples/${name}/${_file}`);
+                const _html    = await response.text();
+                return _html
+            }
+            const replace_all_codes = async (e, _file) => {
+                let _name = e.innerText;
+                let _html = await getSourceCode(_name, _file);
+                let _extension = _file.split(".")[1];
+                let code;
+                if(_extension === "html"){
+                    let _pre_html = _html.split("<!-- Start-->").pop();
+                    let _pos_html = _pre_html.split("<!-- END-->").shift();
+                    let _splited_html = removeFirstEmptyElement(_pos_html.split("\n"))
+                    _splited_html.forEach((e, i, arr) => {
+                        arr[i] = removeIndent(e)
+                    })
+                    let all_together = _splited_html.join("\n")
+                    code = hljs.highlightAuto(all_together).value;
+                } else {
+                    code = hljs.highlightAuto(_html).value;
+                }
+                e.innerHTML = code
+            }
+            let all_codes;
+    body
+        .contenido
+            h1#title=`${page_title}`
+            .menu-nav
+                a(href="../index.html")=`Index`
+                +menu_nav(...pages_arr_formated)
+            block pug_contenido
+            hr
+            .menu-nav#downer
+                a(href="../index.html")=`Index`
+                +menu_nav(...pages_arr_formated)
+        block html_javascript
+        include /modules/pug/static/js_static
+        script(src="../prism/prism.js")
+

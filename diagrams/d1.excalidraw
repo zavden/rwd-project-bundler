@@ -1,0 +1,96 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "b03kWUlLgc-iKGzg-6wyG",
+      "type": "rectangle",
+      "x": 294.15625,
+      "y": 213.1875,
+      "width": 402.9765625,
+      "height": 254.1328125,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": {
+        "type": 3
+      },
+      "seed": 1106936927,
+      "version": 34,
+      "versionNonce": 739308305,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1685778026826,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "vt40X8ncVvgDWeccIFI-7",
+      "type": "diamond",
+      "x": 389.484375,
+      "y": 295.796875,
+      "width": 224.90625,
+      "height": 138.53125,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": {
+        "type": 2
+      },
+      "seed": 252322513,
+      "version": 50,
+      "versionNonce": 1342841279,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1685778031637,
+      "link": null,
+      "locked": false
+    },
+    {
+      "id": "icPpbqK2RZ_32iFX1otIv",
+      "type": "ellipse",
+      "x": 341.125,
+      "y": 248.3984375,
+      "width": 74.2578125,
+      "height": 73.5234375,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": {
+        "type": 2
+      },
+      "seed": 184390111,
+      "version": 87,
+      "versionNonce": 1323999039,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1685778036143,
+      "link": null,
+      "locked": false
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

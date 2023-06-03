@@ -1,0 +1,16 @@
+
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strictNullChecks":false,
+    "forceConsistentCasingInFileNames": true, 
+    "outDir": "docs/",
+    "rootDir": "src/",
+  },
+  "exclude": ["templates","node_modules", "**/*.spec.ts"],
+}
+

@@ -1,0 +1,22 @@
+-
+    const N_PAGES = 2
+
+    const range = (start, end) => {
+        if(start >= end) return [start]
+        return [start, ...range(start + 1, end)]
+    }
+    const zeroPad = (num, places) => String(num).padStart(places, 0)
+
+    const total_pages = range(1,N_PAGES)
+    let pages_arr_formated = []
+    total_pages.forEach(e => pages_arr_formated.push(zeroPad(e,2)))
+
+    const zip_arrs = (arr1, arr2) =>{
+        const new_arr = []
+        for(let i=0; i<arr1.length; i++){
+            let ar = [arr1[i], arr2[i]]
+            new_arr.push(ar)
+        }
+        return new_arr
+    }
+
