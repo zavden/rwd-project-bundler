@@ -1,5 +1,12 @@
 # CSS Project bundler
 
+## Youtube video: 
+<div align="center">
+      <a href="https://www.youtube.com/watch?v=40nNpP8oxfg">
+         <img src="https://img.youtube.com/vi/40nNpP8oxfg/0.jpg" style="width:60%;">
+      </a>
+</div>
+
 This library has the purpose of being able to group many atomic CSS and Responsive Web Design (RWD) projects, in such a way that you can have a list of all the knowledge that you are acquiring through multiple simple projects.
 
 ## Requirements
