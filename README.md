@@ -78,7 +78,7 @@ Go to the file `modules/pug/mixins/mixins.pug`:
 
 ```pug
 -
-    let title = undefined,
+    let title,
         codepen_user = "zavden",
         default_height = 400
 ```
