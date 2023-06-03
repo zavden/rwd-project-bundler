@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+}
+
+#title {
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+}
+
+body {
+  background: #ff9966;
+  background: linear-gradient(to right, rgb(217, 89, 0), rgb(255, 179, 107));
+  font-size: 1.3rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenido {
+  background-color: white;
+  min-height: calc(100vh - 20px);
+  max-width: 1262px;
+  margin: 0 auto;
+  padding: 20px 30px 0 30px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+[href^=http] {
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px 30px;
+}
+
+.link-exercises {
+  background-color: teal;
+  padding: 10px;
+  border-radius: 10px 30px;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.menu-nav a {
+  flex: 1;
+  background-color: steelblue;
+  padding: 20px;
+}
+.menu-nav a:hover {
+  background-color: purple;
+}
+
+code {
+  background-color: rgb(254, 209, 206);
+  display: inline-block;
+  font-size: 0.9em;
+  padding: 0.2rem 0.2rem;
+  border: thin solid red;
+}
+pre code {
+  background-color: black;
+  color: white;
+  display: block;
+  padding: 20px 40px;
+  border: thin dotted black;
+  border-radius: 0;
+}
+
+.header {
+  background-color: #fb6f66;
+  border-radius: 0;
+  font-size: 2.5rem;
+}
+
+.formula {
+  font-size: 150%;
+}
+
+.ejercicio {
+  font-size: 140%;
+  font-weight: bold;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 45em;
+}
+
+#write {
+  counter-reset: h1;
+}
+
+h1 {
+  counter-reset: h2;
+}
+
+h2 {
+  counter-reset: h3;
+}
+
+h3 {
+  counter-reset: h4;
+}
+
+h4 {
+  counter-reset: h5;
+}
+
+h5 {
+  counter-reset: h6;
+}
+
+/** put counter result into headings */
+h1:before {
+  counter-increment: h1;
+}
+
+h2:before {
+  counter-increment: h2;
+  content: counter(h2) ". ";
+}
+
+h3:before,
+h3.md-focus.md-heading:before {
+  counter-increment: h3;
+  content: counter(h2) "." counter(h3) ". ";
+}
+
+h4:before,
+h4.md-focus.md-heading:before {
+  counter-increment: h4;
+  content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+}
+
+h5:before,
+h5.md-focus.md-heading:before {
+  counter-increment: h5;
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";
+}
+
+h6:before,
+h6.md-focus.md-heading:before {
+  counter-increment: h6;
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". ";
+}
+
+/** override the default style for focused headings */
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  color: inherit;
+  border: inherit;
+  border-radius: inherit;
+  position: inherit;
+  left: initial;
+  float: none;
+  top: initial;
+  font-size: inherit;
+  padding-left: inherit;
+  padding-right: inherit;
+  vertical-align: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+
+code.hljs {
+  padding: 3px 5px;
+}
+
+.hljs {
+  background: #272822;
+  color: #ddd;
+}
+
+.hljs-keyword, .hljs-literal, .hljs-name, .hljs-selector-tag, .hljs-strong, .hljs-tag {
+  color: #f92672;
+}
+
+.hljs-code {
+  color: #66d9ef;
+}
+
+.hljs-attribute, .hljs-link, .hljs-regexp, .hljs-symbol {
+  color: #bf79db;
+}
+
+.hljs-addition, .hljs-built_in, .hljs-bullet, .hljs-emphasis, .hljs-section, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-string, .hljs-subst, .hljs-template-tag, .hljs-template-variable, .hljs-title, .hljs-type, .hljs-variable {
+  color: #a6e22e;
+}
+
+.hljs-class .hljs-title, .hljs-title.class_ {
+  color: #fff;
+}
+
+.hljs-comment, .hljs-deletion, .hljs-meta, .hljs-quote {
+  color: #75715e;
+}
+
+.hljs-doctag, .hljs-keyword, .hljs-literal, .hljs-section, .hljs-selector-id, .hljs-selector-tag, .hljs-title, .hljs-type {
+  font-weight: 700;
+}
+
+.embed-container {
+  position: relative;
+  /* set the aspect ratio here as (height / width) * 100% */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.html-resize {
+  resize: both;
+  overflow: auto;
+  border: solid gray;
+  border-width: thin;
+}
+
+.menu-nav .remark-ej {
+  background-color: lightseagreen;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.topright {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.topright:hover {
+  color: red;
+}
+
+.change-vh-container {
+  text-align: right;
+}
+
+.ejercicio-html {
+  background-color: purple;
+  padding: 10px;
+  border-radius: 10px 30px;
+}
+
+.super-embed-container .change-vh-container {
+  padding-bottom: 50px;
+  background-color: #1D1E22;
+  color: white;
+}
+
+.content-flex-code {
+  display: flex;
+  align-items: stretch;
+  align-content: center;
+}
+
+.warning-red {
+  outline: 2px solid red;
+  display: flex;
+  justify-content: center;
+}
+
+.embed-code {
+  display: flex;
+  flex-wrap: wrap;
+}
+.embed-code > pre {
+  flex: 1 1 50%;
+  margin: 0 !important;
+}
+.embed-code > pre code {
+  height: 100%;
+  padding: 0.5em;
+  white-space: wrap;
+}
+
+.tabcontent {
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
