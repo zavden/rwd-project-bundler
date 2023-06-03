@@ -15,8 +15,8 @@ Note: Windows users need to have a Bash shell, you can use Git Bash.
 Clone this repository and install the repo:
 
 ```sh
-$ git clone <>
-$ cp <>
+$ git clone https://github.com/zavden/rwd-project-bundler rwd
+$ cp rwd
 $ npm i
 $ make
 ```
@@ -73,7 +73,7 @@ Go to the file `modules/pug/mixins/mixins.pug`:
 -
     let title = undefined,
         codepen_user = "zavden",
-        default_height=400
+        default_height = 400
 ```
 
 And replace the `codepen_user` with your username.
